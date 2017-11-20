@@ -4,7 +4,6 @@ interface Message {
     content: string;
     time: Date;
     channelId: number;
-    workspaceId: number;
 }
 
 export default Message;
