@@ -59,7 +59,6 @@ function excludeMemberFromChannel(req: Request, res: Response) {
 
 function getMessages(req: Request, res: Response) {
     const channelId: number = parseInt(req.params.id, 10);
-
     const foundMessages: Message[] = messages.filter(message => message.channelId === channelId);
 
     if (!foundMessages) {
