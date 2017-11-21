@@ -1,10 +1,6 @@
 import Member from '../member/member';
 
-interface MembersArray {
-    [index: number]: Member,
-}
-
-const members: MembersArray = [
+const members: Member[] = [
     {
         id: 1,
         firstName: 'Iryna',
