@@ -30,7 +30,7 @@ module.exports = {
             },
             {
                 test: /\.ts$/,
-                use: ['awesome-typescript-loader', 'angular2-template-loader?keepUrl=true'],
+                use: ['awesome-typescript-loader', 'angular2-template-loader?keepUrl=false'],
             },
             {
                 test: /\.scss$/,
