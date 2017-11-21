@@ -1,17 +1,12 @@
 import Message from '../message/message';
 
-interface MessagesArray {
-    [index: number]: Message,
-}
-
-const messages: MessagesArray = [
+const messages: Message[] = [
     {
         id: 1,
         authorId: 1,
         content: 'Hello!',
         time: new Date('2017-08-01T17:24:39'),
         channelId: 1,
-        workspaceId: 1,
     },
     {
         id: 2,
@@ -19,7 +14,6 @@ const messages: MessagesArray = [
         content: 'Bla bla bla message',
         time: new Date('2017-08-01T17:25:23'),
         channelId: 1,
-        workspaceId: 1,
     },
     {
         id: 3,
@@ -27,6 +21,7 @@ const messages: MessagesArray = [
         content: 'Bla bla bla message',
         time: new Date('2017-08-01T17:26:56'),
         channelId: 1,
-        workspaceId: 1,
     },
 ];
+
+export default messages;
