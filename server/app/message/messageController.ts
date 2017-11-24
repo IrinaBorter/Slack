@@ -3,16 +3,9 @@ import { Request, Response } from '../../../node_modules/@types/express';
 
 function deleteMessage(req: Request, res: Response) {
     const messageId = parseInt(req.body.messageId, 10);
-
-    let indexOfMessage = -1;
-    messages.forEach((message, index) => {
-        if (message.id === messageId) {
-            indexOfMessage = index;
-        }
-    });
+    const indexOfMessage = messages.findIndex(message => message.id === messageId);
 
     indexOfMessage >= 0 && messages.splice(indexOfMessage, 1);
-
     res.status(200).send(messages);
 }
 
