@@ -1,0 +1,12 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+slack-channels-tab {
+    width: 35%;
+}
+
+slack-chat {
+    flex-grow: 1;
+}
