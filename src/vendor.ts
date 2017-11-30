@@ -5,7 +5,3 @@ import '@angular/common';
 import '@angular/http';
 import '@angular/router';
 import 'rxjs';
-import 'rxjs/operator/distinctUntilChanged';
-import 'rxjs/operator/filter';
-import 'rxjs/operator/map';
-import 'rxjs/operator/switchMap';
