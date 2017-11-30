@@ -34,8 +34,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                include: [path.join(__dirname, 'src/app')],
-                use: ['raw-loader', 'sass-loader'],
+                use: ['raw-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.html$/,

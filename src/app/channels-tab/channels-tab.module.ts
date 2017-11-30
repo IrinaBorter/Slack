@@ -6,6 +6,7 @@ import { ChannelsTabComponent } from './channels-tab.component';
 @NgModule({
     imports: [CommonModule],
     declarations: [ChannelsTabComponent],
+    exports: [ChannelsTabComponent],
 })
 
 export class ChannelsTabModule {}
