@@ -1,0 +1,11 @@
+.chat-message-container {
+  width: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+slack-message:not(:last-child) {
+    display: block;
+    margin-bottom: 10px;
+}

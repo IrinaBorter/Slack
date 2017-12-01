@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import '../assets/style.scss';
 
 @Component({
     selector: 'slack-app',
-    template: './app.component.html',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
 
 export class AppComponent {}
