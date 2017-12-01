@@ -1,3 +1,5 @@
+@import '../../../assets/color';
+
 .chat-message-section {
     display: flex;
     font-size: 14px;
@@ -18,5 +20,5 @@
 }
 
 .chat-message-time {
-    color: #d1cfcf;
+    color: $medium-gray;
 }

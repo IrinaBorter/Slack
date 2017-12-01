@@ -1,3 +1,6 @@
+@import '../../../assets/color';
+@import '../../../assets/font';
+
 .chat-message-container {
     width: 100%;
     padding: 20px;
@@ -5,15 +8,15 @@
 
 .chat-message {
     width: 100%;
-    border: 2px solid gray;
+    border: 2px solid $gray;
     border-radius: 5px;
     padding: 10px 5px;
     outline: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: $roboto;
     font-size: 16px;
 
     &::placeholder {
-        color: #d1cfcf;
+        color: $light-gray;
         font-weight: lighter;
     }
 }

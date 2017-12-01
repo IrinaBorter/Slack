@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -34,6 +35,15 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                exclude: [path.join(__dirname, 'src/app')],
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader'],
+                }),
+            },
+            {
+                test: /\.scss$/,
+                include: [path.join(__dirname, 'src/app')],
                 use: ['raw-loader', 'sass-loader'],
             },
             {
@@ -73,6 +83,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new webpack.HotModuleReplacementPlugin(),
         new WebpackNotifierPlugin(),
+        new ExtractTextPlugin('style.css'),
     ],
 
     devtool: 'source-map',

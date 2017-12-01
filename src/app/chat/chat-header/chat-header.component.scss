@@ -1,7 +1,9 @@
+@import '../../../assets/color';
+
 .chat-header {
     height: 60px;
     width: 100%;
-    border-bottom: 1px solid #d2d1d1;
+    border-bottom: 1px solid $light-gray;
     padding: 10px;
 }
 
