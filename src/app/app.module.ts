@@ -8,9 +8,6 @@ import { StoreModule } from './store/store.module';
 import { ChatModule } from './chat/chat.module';
 import { ChannelsTabModule } from './channels-tab/channels-tab.module';
 
-import { ChatModule } from './chat/chat.module';
-import { ChannelsTabModule } from './channels-tab/channels-tab.module';
-
 @NgModule({
     imports: [
         BrowserModule,

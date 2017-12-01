@@ -34,7 +34,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['raw-loader', 'css-loader', 'sass-loader'],
+                use: ['raw-loader', 'sass-loader'],
             },
             {
                 test: /\.html$/,
