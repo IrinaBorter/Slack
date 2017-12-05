@@ -1,10 +1,10 @@
 import { ChannelsActions } from '../actions/channels';
-// import { Action } from 'redux';
+import { FluxStandardAction as Action } from 'flux-standard-action';
 
-type Action = { type: string, payload: any };
 interface IState {}
+interface IChannel {}
 
-export default function channelsReducer(state: IState[] = [], action: Action) {
+export default function channelsReducer(state: IState[] = [], action: Action<string, IChannel>) {
     switch (action.type) {
         case ChannelsActions.CREATE_CHANNEL: {
             return [action.payload];

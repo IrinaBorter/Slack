@@ -1,10 +1,10 @@
 import { MessagesActions } from '../actions/messages';
-// import { Action } from 'redux';
+import { FluxStandardAction as Action } from 'flux-standard-action';
 
-type Action = { type: string, payload: any };
 interface IState {}
+interface IMessage {}
 
-export default function messagesReducer(state: IState[] = [], action: Action) {
+export default function messagesReducer(state: IState[] = [], action: Action<string, IMessage>) {
     switch (action.type) {
         case MessagesActions.DELETE_MESSAGE: {
             return [action.payload];

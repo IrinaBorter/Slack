@@ -1,10 +1,10 @@
 import { WorkspacesActions } from '../actions/workspaces';
-// import { Action } from 'redux';
+import { FluxStandardAction as Action } from 'flux-standard-action';
 
-type Action = { type: string, payload: any };
 interface IState {}
+interface IWorkspace {}
 
-export default function workspacesReducer(state: IState[] = [], action: Action) {
+export default function workspacesReducer(state: IState[] = [], action: Action<string, IWorkspace>) {
     switch (action.type) {
         case WorkspacesActions.CREATE_WORKSPACE: {
             return [action.payload];
