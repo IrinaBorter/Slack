@@ -1,10 +1,10 @@
 import { MembersActions } from '../actions/memebrs';
-// import { Action } from 'redux';
+import { FluxStandardAction as Action } from 'flux-standard-action';
 
-type Action = { type: string, payload: any };
 interface IState {}
+interface IMember {}
 
-export default function membersReducer(state: IState[] = [], action: Action) {
+export default function membersReducer(state: IState[] = [], action: Action<string, IMember>) {
     switch (action.type) {
         case MembersActions.REGISTER_NEW_MEMBER: {
             return [action.payload];
