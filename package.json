@@ -60,6 +60,7 @@
     "express": "4.16.2",
     "flux-standard-action": "2.0.0",
     "redux": "3.7.2",
+    "redux-observable": "0.17.0",
     "reflect-metadata": "0.1.10",
     "rxjs": "5.5.2",
     "systemjs": "0.19.40",

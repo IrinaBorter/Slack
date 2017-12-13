@@ -8,6 +8,8 @@ import { StoreModule } from './store/store.module';
 import { ChatModule } from './chat/chat.module';
 import { ChannelsTabModule } from './channels-tab/channels-tab.module';
 
+import { WorkspaceModule } from './workspace/workspace.module';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -15,6 +17,7 @@ import { ChannelsTabModule } from './channels-tab/channels-tab.module';
         ChannelsTabModule,
         NgReduxModule,
         StoreModule,
+        WorkspaceModule,
     ],
     declarations: [
         AppComponent,

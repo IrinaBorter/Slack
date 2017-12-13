@@ -32,6 +32,17 @@ function createWorkspace(req: Request, res: Response) {
     res.status(200).send(workspaces);
 }
 
+function getWorkspacesByMemberId(req: Request, res: Response) {
+    const memberId = parseInt(req.params.memberId, 10);
+    const filteredWorkspaces = workspaces.filter(workspace => workspace.membersIds.indexOf(memberId) >= 0);
+
+    if (!filteredWorkspaces) {
+        res.sendStatus(404);
+    } else {
+        res.status(200).send(filteredWorkspaces);
+    }
+}
+
 function includeMemberToWorkspace(req: Request, res: Response) {
     const memberId =  parseInt(req.body.memberId, 10);
     const workspaceId = parseInt(req.body.workspaceId, 10);
@@ -62,6 +73,7 @@ export {
     getWorkspaces,
     getWorkspace,
     createWorkspace,
+    getWorkspacesByMemberId,
     includeMemberToWorkspace,
     excludeMemberFromWorkspace,
 };

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { composeReducers } from '@angular-redux/form';
 
-import workspacesReducer from './workspacesReducer';
+import workspacesReducer from '../workspace/redux-entities/workspace-reducer';
 import channelsReducer from './channelsReducer';
 import membersReducer from './membersReducer';
 import messagesReducer from './messagesReducer';
