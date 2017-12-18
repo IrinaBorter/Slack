@@ -1,21 +1,23 @@
-import { NgModule } from '@angular/core';
-import { createEpicMiddleware } from 'redux-observable';
-
+import { NgModule, Injectable } from '@angular/core';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { rootReducer } from '../reducers/rootReducer';
-import { rootEpic } from './root-epic';
+import { RootEpic } from './root-epic';
 
 interface IAppState {}
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
-const middlewares = [epicMiddleware];
-
 @NgModule({
     imports: [NgReduxModule],
+    providers: [RootEpic],
 })
 
+@Injectable()
 export class StoreModule {
-    constructor(public store: NgRedux<IAppState>, devTools: DevToolsExtension) {
-        store.configureStore(rootReducer, {}, middlewares, devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+    constructor(
+        public store: NgRedux<IAppState>,
+        public devTools: DevToolsExtension,
+        private rootEpic: RootEpic,
+    ) {
+        const epicMiddleware = this.rootEpic.createEpics();
+        store.configureStore(rootReducer, {}, [epicMiddleware], devTools.isEnabled() ? [ devTools.enhancer() ] : []);
     }
 }

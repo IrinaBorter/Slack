@@ -4,6 +4,7 @@ import { dispatch } from '@angular-redux/store';
 interface IWorkspace {}
 interface IMember {}
 
+@Injectable()
 export class WorkspaceActions {
     static FETCH_WORKSPACES: string = 'FETCH_WORKSPACES';
     static CREATE_WORKSPACE: string = 'CREATE_WORKSPACE';

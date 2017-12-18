@@ -1,14 +1,28 @@
-import { ActionsObservable } from 'redux-observable';
-import { ajax } from 'rxjs/observable/dom/ajax';
+import { createEpicMiddleware } from 'redux-observable';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 import { WorkspaceActions } from './workspace-actions';
 
-const fetchWorkspacesEpic = (action$: ActionsObservable<any>) => {
-    return action$.ofType(WorkspaceActions.FETCH_WORKSPACES)
-        .mergeMap((action) => {
-            return ajax.getJSON(`/api/workspaces/member/:${action.payload.id}`)
-                .map(response => ({ type: WorkspaceActions.FETCH_WORKSPACES, payload: response }));
-        });
-};
+@Injectable()
+export class WorkspacesEpic {
+    constructor(
+        private http: Http,
+        private actions: WorkspaceActions,
+    ) {}
 
-export { fetchWorkspacesEpic };
+    public createEpic() {
+        return createEpicMiddleware(this.createWorkspacesEpic());
+    }
+
+    private createWorkspacesEpic() {
+        return (action$: any) => {
+            return action$.ofType(WorkspaceActions.FETCH_WORKSPACES)
+                .mergeMap((action: any) => {
+                    return this.http.get(`/api/workspaces/member/:${action.payload.id}`)
+                        .map(response => response.json())
+                        .map(response => this.actions.fetchWorkspaces(response));
+                });
+        };
+    }
+}
