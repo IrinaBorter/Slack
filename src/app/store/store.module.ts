@@ -19,6 +19,8 @@ export class StoreModule {
         private rootEpic: RootEpic,
     ) {
         const epicMiddleware = this.rootEpic.createEpics();
-        store.configureStore(rootReducer, {}, [createLogger(), epicMiddleware], devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+        const devTools = devTools.isEnabled() ? [ devTools.enhancer() ] : [];
+
+        store.configureStore(rootReducer, {}, [createLogger(), epicMiddleware], devTools);
     }
 }
