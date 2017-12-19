@@ -1,5 +1,6 @@
 import { NgModule, Injectable } from '@angular/core';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
+import { createLogger } from 'redux-logger';
 import { rootReducer } from '../reducers/rootReducer';
 import { RootEpic } from './root-epic';
 
@@ -18,6 +19,6 @@ export class StoreModule {
         private rootEpic: RootEpic,
     ) {
         const epicMiddleware = this.rootEpic.createEpics();
-        store.configureStore(rootReducer, {}, [epicMiddleware], devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+        store.configureStore(rootReducer, {}, [createLogger(), epicMiddleware], devTools.isEnabled() ? [ devTools.enhancer() ] : []);
     }
 }

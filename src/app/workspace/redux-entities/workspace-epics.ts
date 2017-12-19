@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { WorkspaceActions } from './workspace-actions';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class WorkspacesEpic {
@@ -18,10 +19,12 @@ export class WorkspacesEpic {
     private createWorkspacesEpic() {
         return (action$: any) => {
             return action$.ofType(WorkspaceActions.FETCH_WORKSPACES)
-                .mergeMap((action: any) => {
-                    return this.http.get(`/api/workspaces/member/:${action.payload.id}`)
+                .switchMap((action: any) => {
+                    return this.http.get(`/api/workspaces/member/${action.payload.memberId}`)
                         .map(response => response.json())
-                        .map(response => this.actions.fetchWorkspaces(response));
+                        .map(response => this.actions.loadWorkspacesSucceeded(response))
+                        .catch(() => of(this.actions.loadWorkspacesFailed(true)))
+                        .startWith(this.actions.loadWorkspacesStarted());
                 });
         };
     }

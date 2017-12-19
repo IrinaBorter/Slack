@@ -8,16 +8,28 @@ const defaultWorkspaceState = { items:  [] as IWorkspace[], loading: false, erro
 
 export default function workspacesReducer(state: IState = defaultWorkspaceState, action: Action<string, IWorkspace>) {
     switch (action.type) {
+        case WorkspaceActions.LOAD_WORKSPACES_STARTED: {
+            return { ...state, ...{ loading: true } };
+        }
+
+        case WorkspaceActions.LOAD_WORKSPACES_SUCCEEDED: {
+            return { ...state, ...{ items: action.payload, loading: false } };
+        }
+
+        case WorkspaceActions.LOAD_WORKSPACES_FAILED: {
+            return { ...state, ...{ error: action.error, loading: false } };
+        }
+
         case WorkspaceActions.CREATE_WORKSPACE: {
-            return Object.assign({}, state, { items: action.payload });
+            return { ...state, ...{ items: action.payload } };
         }
 
         case WorkspaceActions.INCLUDE_MEMBER_TO_WORKSPACE: {
-            return Object.assign({}, state, { items: action.payload });
+            return { ...state, ...{ items: action.payload } };
         }
 
         case WorkspaceActions.EXCLUDE_MEMBER_FROM_WORKSPACE: {
-            return Object.assign({}, state, { items: action.payload });
+            return { ...state, ...{ items: action.payload } };
         }
 
         default: {

@@ -3,6 +3,8 @@ import { select } from '@angular-redux/store';
 
 import { WorkspaceActions } from './redux-entities/workspace-actions';
 
+interface IWorkspace {}
+
 @Component({
     selector: 'slack-workspace',
     templateUrl: './workspace.component.html',
@@ -11,11 +13,11 @@ import { WorkspaceActions } from './redux-entities/workspace-actions';
 
 @Injectable()
 export class WorkspaceComponent implements OnInit {
-    @select('workspaces') workspaces$: any;
+    @select(['workspaces', 'items']) workspaces$: IWorkspace[];
 
     constructor(private actions: WorkspaceActions) {}
 
     ngOnInit() {
-        this.actions.fetchWorkspaces(1);
+        this.actions.fetchWorkspaces({ memberId: 1 });
     }
 }

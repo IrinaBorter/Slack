@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { combineEpics } from 'redux-observable';
 
 import { WorkspacesEpic } from '../workspace/redux-entities/workspace-epics';
 
@@ -8,6 +7,6 @@ export class RootEpic {
     constructor(private workspacesEpics: WorkspacesEpic) {}
 
     public createEpics() {
-        return combineEpics(this.workspacesEpics.createEpic());
+        return this.workspacesEpics.createEpic();
     }
 }
