@@ -6,7 +6,7 @@ import { WorkspaceActions } from './redux-entities/workspace-actions';
 interface IWorkspace {}
 
 @Component({
-    selector: 'slack-workspace',
+    selector: 'slack-workspaces-tab',
     templateUrl: './workspace.component.html',
     styleUrls: ['./workspace.component.scss'],
 })
