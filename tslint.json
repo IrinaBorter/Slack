@@ -25,7 +25,6 @@
     "class-name": true,
     "curly": true,
     "forin": true,
-    "max-line-length": [true, 120],
     "no-construct": true,
     "no-debugger": true,
     "no-empty": false,
