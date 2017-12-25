@@ -8,6 +8,17 @@ function getChannels(req: Request, res: Response) {
     res.status(200).send(channels);
 }
 
+function getChannelsByWorkspaceId(req: Request, res: Response) {
+    const workspaceId = parseInt(req.params.workspaceId, 10);
+    const filteredChannels = channels.filter(workspace => workspace.membersIds.indexOf(workspaceId) >= 0);
+
+    if (!filteredChannels) {
+        res.sendStatus(404);
+    } else {
+        res.status(200).send(filteredChannels);
+    }
+}
+
 function getChannel(req: Request, res: Response) {
     const id = parseInt(req.params.id, 10);
     const channel: Channel = channels.find((channel: Channel) => channel.id === id);
@@ -84,6 +95,7 @@ function putMessage(req: Request, res: Response) {
 
 export {
     getChannels,
+    getChannelsByWorkspaceId,
     getChannel,
     createChannel,
     includeMemberToChannel,

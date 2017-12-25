@@ -12,6 +12,7 @@ interface IWorkspace {
 
 export class WorkspaceItemComponent {
     @Input() workspace: IWorkspace;
+    @Input() onWorkspaceClick: Function;
 
     public getWorkspaceName() {
         return this.workspace.name.split(' ').slice(0, 2).map(word => word[0]).join('-');

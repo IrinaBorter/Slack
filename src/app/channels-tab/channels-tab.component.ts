@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { select } from '@angular-redux/store';
+
+import { ChannelsActions } from './redux-entities/channels-actions';
+
+interface IChannel {}
 
 @Component({
     selector: 'slack-channels-tab',
@@ -6,4 +12,18 @@ import { Component } from '@angular/core';
     styleUrls: ['./channels-tab.component.scss'],
 })
 
-export class ChannelsTabComponent {}
+export class ChannelsTabComponent implements OnInit {
+    @select(['channels', 'items']) channels$: IChannel[];
+
+    constructor(
+        private route: ActivatedRoute,
+        private actions: ChannelsActions,
+    ) {}
+
+    ngOnInit() {
+        this.route.params.subscribe((params: Params) => {
+            const workspaceId = parseInt(params['workspaceId'], 10);
+            this.actions.fetchChannels({ workspaceId });
+        });
+    }
+}

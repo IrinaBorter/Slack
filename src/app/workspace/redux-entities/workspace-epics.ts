@@ -1,4 +1,3 @@
-import { createEpicMiddleware } from 'redux-observable';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -13,7 +12,7 @@ export class WorkspacesEpic {
     ) {}
 
     public createEpic() {
-        return createEpicMiddleware(this.createWorkspacesEpic());
+        return this.createWorkspacesEpic();
     }
 
     private createWorkspacesEpic() {

@@ -1,1 +1,5 @@
-<div class="workspace-item" title="{{workspace.name}}">{{getWorkspaceName()}}</div>
+<div class="workspace-item"
+     title="{{workspace.name}}"
+     [ngClass]="{ 'active': workspace.active }"
+     (click)="onWorkspaceClick(workspace)"
+>{{getWorkspaceName()}}</div>

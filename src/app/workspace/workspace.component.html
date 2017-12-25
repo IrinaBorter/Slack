@@ -2,5 +2,7 @@
     <slack-workspace-item
             *ngFor="let workspace of workspaces$ | async"
             [workspace]="workspace"
+            [routerLink]="[workspace.id]"
+            [onWorkspaceClick]="onWorkspaceClick.bind(this)"
     ></slack-workspace-item>
 </div>
