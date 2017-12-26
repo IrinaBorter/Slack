@@ -31,11 +31,11 @@ export class WorkspaceComponent implements OnInit {
             const workspaceId = parseInt(params['workspaceId'], 10);
             this.workspaces$.forEach(workspace => {
                 workspace.active = workspace.id === workspaceId;
-            })
+            });
         });
     }
 
-    onWorkspaceClick(selectedWorkspace) {
+    onWorkspaceClick(selectedWorkspace: IWorkspace) {
         this.workspaces$.forEach(workspace => {
             workspace.active = workspace === selectedWorkspace;
         });
