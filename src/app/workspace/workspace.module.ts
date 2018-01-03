@@ -6,13 +6,14 @@ import { WorkspaceActions } from './redux-entities/workspace-actions';
 import { WorkspacesEpic } from './redux-entities/workspace-epics';
 import { WorkspaceComponent } from './workspace.component';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
-import { WorkspacesRoutingModule } from './workspaces-routing.module';
+
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
-        WorkspacesRoutingModule,
+        AppRoutingModule,
     ],
     declarations: [
         WorkspaceComponent,
