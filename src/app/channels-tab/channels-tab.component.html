@@ -1,3 +1,6 @@
 <div class="channels-container">
-    {{channels$ | async | json}}
+    <h3 class="channels-tab-header">Channels</h3>
+    <div class="channel-item" *ngFor="let channel of channels$ | async">
+        {{channel.name}}
+    </div>
 </div>

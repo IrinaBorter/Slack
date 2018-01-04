@@ -17,3 +17,7 @@ slack-workspace-item {
     align-items: center;
     padding: 10px 5px;
 }
+
+:host(slack-workspaces-tab) {
+    display: flex;
+}
