@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { WorkspaceActions } from './redux-entities/workspace-actions';
 
@@ -16,7 +17,7 @@ interface IWorkspace {
 })
 
 export class WorkspaceComponent implements OnInit {
-    @select(['workspaces', 'items']) workspaces$: IWorkspace[];
+    @select(['workspaces', 'items']) workspaces$: Observable<IWorkspace>[];
 
     constructor(
         private actions: WorkspaceActions,

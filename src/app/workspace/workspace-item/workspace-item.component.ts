@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 interface IWorkspace {
     name: string;
@@ -8,6 +8,7 @@ interface IWorkspace {
     selector: 'slack-workspace-item',
     templateUrl: './workspace-item.component.html',
     styleUrls: ['./workspace-item.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class WorkspaceItemComponent {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { select } from '@angular-redux/store';
 
 import { ChannelsActions } from './redux-entities/channels-actions';
+import { Observable } from 'rxjs';
 
 interface IChannel {}
 
@@ -13,7 +14,7 @@ interface IChannel {}
 })
 
 export class ChannelsTabComponent implements OnInit {
-    @select(['channels', 'items']) channels$: IChannel[];
+    @select(['channels', 'items']) channels$: Observable<IChannel>[];
 
     constructor(
         private route: ActivatedRoute,
