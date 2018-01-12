@@ -1,0 +1,25 @@
+@import '../../../assets/color';
+
+:host {
+    border: 2px solid $purple;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+
+    &.active {
+        background-color: $purple;
+    }
+
+    &:hover {
+        background-color: $purple;
+        cursor: pointer;
+    }
+}
+
+.workspace-item {
+    width: 50px;
+    height: 50px;
+    color: $white;
+    text-align: center;
+    line-height: 50px;
+}

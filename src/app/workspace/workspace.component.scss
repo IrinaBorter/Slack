@@ -1,0 +1,23 @@
+@import '../../assets/color';
+
+:host {
+    display: flex;
+}
+
+slack-channels-tab {
+    width: 35%;
+}
+
+slack-workspace-item {
+    outline: none;
+}
+
+.workspaces-container {
+    width: 70px;
+    height: 100%;
+    background: $dark-purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5px;
+}

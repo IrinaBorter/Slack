@@ -1,1 +1,9 @@
-<div>{{workspaces$ | async | json}}</div>
+<div class="workspaces-container">
+    <slack-workspace-item
+            *ngFor="let workspace of workspaces$ | async"
+            [workspace]="workspace"
+            [routerLink]="[workspace.id]"
+            routerLinkActive="active"
+    ></slack-workspace-item>
+</div>
+<router-outlet></router-outlet>
