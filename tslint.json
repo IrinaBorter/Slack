@@ -2,7 +2,6 @@
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
-  "noUnusedLocals": true,
   "rules":{
     "angular-whitespace": [true, "check-interpolation", "check-pipe"],
     "banana-in-box": true,
