@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
-import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { WorkspaceActions } from './redux-entities/workspace-actions';
@@ -21,7 +20,6 @@ export class WorkspaceComponent implements OnInit {
 
     constructor(
         private actions: WorkspaceActions,
-        private route: ActivatedRoute,
     ) {}
 
     ngOnInit() {
