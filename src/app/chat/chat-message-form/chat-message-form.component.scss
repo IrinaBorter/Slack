@@ -19,4 +19,12 @@
         color: $light-gray;
         font-weight: lighter;
     }
+
+    &.ng-invalid  {
+       color: red;
+    }
+}
+
+.error-message {
+    color: red;
 }

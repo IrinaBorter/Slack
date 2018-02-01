@@ -1,0 +1,14 @@
+<form class="chat-message-container" (ngSubmit)="onSubmit()" #messageForm="ngForm">
+    <input type="text"
+           placeholder="Type here..."
+           class="chat-message"
+           required
+           [(ngModel)]="model.message"
+           name="message"
+           #message="ngModel"
+    >
+    <div [hidden]="message.valid || message.pristine" class="error-message">
+        Name is required
+    </div>
+    <button type="submit" [disabled]="!messageForm.form.valid">Send</button>
+</form>

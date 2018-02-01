@@ -28,3 +28,27 @@ export class ChatEpic {
         };
     }
 }
+
+@Injectable()
+export class PushEpic {
+    constructor(
+        private http: Http,
+        private actions: ChatActions,
+    ) {}
+
+    public createEpic() {
+        return this.createPushEpic();
+    }
+
+    private createPushEpic() {
+        return (action$: any) => {
+            return action$.ofType(ChatActions.PUSH_MESSAGE)
+                .switchMap((action: any) => {
+                    return this.http.post('/api/messages', action.payload)
+                        .map(response => response.json())
+                        .map(response => this.actions.pushMessagesSucceeded(response))
+                        .catch(() => of(this.actions.pushMessagesFailed(true)))
+                });
+        };
+    }
+}

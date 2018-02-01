@@ -20,8 +20,12 @@ export default function chatReducer(state: IState = defaultChatState, action: Ac
             return { ...state, error: action.error, loading: false };
         }
 
-        case ChatActions.PUSH_MESSAGE: {
-            return {...state, items: action.payload };
+        case ChatActions.PUSH_MESSAGES_SUCCEEDED: {
+            return { ...state, items: action.payload, loading: false };
+        }
+
+        case ChatActions.PUSH_MESSAGES_FAILED: {
+            return { ...state, error: action.error, loading: false };
         }
 
         default: {

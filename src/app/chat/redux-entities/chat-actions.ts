@@ -9,7 +9,9 @@ export class ChatActions {
     static FETCH_MESSAGES: string = 'FETCH_MESSAGES';
     static LOAD_MESSAGES_STARTED: string = 'LOAD_MESSAGES_STARTED';
     static LOAD_MESSAGES_SUCCEEDED: string = 'LOAD_MESSAGES_SUCCEEDED';
+    static PUSH_MESSAGES_SUCCEEDED: string = 'PUSH_MESSAGES_SUCCEEDED';
     static LOAD_MESSAGES_FAILED: string = 'LOAD_MESSAGES_FAILED';
+    static PUSH_MESSAGES_FAILED: string = 'PUSH_MESSAGES_FAILED';
     static PUSH_MESSAGE: string = 'PUSH_MESSAGE';
 
     @dispatch()
@@ -30,6 +32,17 @@ export class ChatActions {
 
     loadMessagesFailed = (error: boolean) => ({
         type: ChatActions.LOAD_MESSAGES_FAILED,
+        payload: [] as IMessage[],
+        error,
+    })
+
+    pushMessagesSucceeded = (messages: IMessage[]) => ({
+        type: ChatActions.PUSH_MESSAGES_SUCCEEDED,
+        payload: messages,
+    })
+
+    pushMessagesFailed = (error: boolean) => ({
+        type: ChatActions.PUSH_MESSAGES_FAILED,
         payload: [] as IMessage[],
         error,
     })
