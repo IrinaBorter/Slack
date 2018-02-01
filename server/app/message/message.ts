@@ -1,9 +1,15 @@
 interface Message {
     id: number;
-    authorId: number;
+    author: {
+        id: number;
+        name: string;
+    };
     content: string;
     time: Date;
-    channelId: number;
+    channel: {
+        id: number;
+        name: string;
+    };
 }
 
 export default Message;

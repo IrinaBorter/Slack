@@ -1,5 +1,9 @@
 @import '../../assets/color';
 
+:host {
+  display: flex;
+}
+
 .channels-container {
   width: 250px;
   background: $purple;
@@ -17,6 +21,7 @@
 .channel-item {
   padding: 5px 10px;
   transition: background 0.3s;
+  outline: none;
 
   &:before {
     content: '#';

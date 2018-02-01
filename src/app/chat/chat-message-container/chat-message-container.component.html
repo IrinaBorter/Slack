@@ -1,5 +1,5 @@
 <main class="chat-message-container">
-    <slack-message></slack-message>
-    <slack-message></slack-message>
-    <slack-message></slack-message>
+    <slack-message *ngFor="let message of messages$ | async"
+                   [message]="message"
+    ></slack-message>
 </main>

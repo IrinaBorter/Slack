@@ -9,6 +9,17 @@ function deleteMessage(req: Request, res: Response) {
     res.status(200).send(messages);
 }
 
+function getMessagesByChannelId(req: Request, res: Response) {
+    const channelId = parseInt(req.params.channelId, 10);
+    const filteredMessages = messages.filter(message => message.channel.id === channelId);
+
+    if (!filteredMessages.length) {
+        res.sendStatus(404);
+    } else {
+        res.status(200).send(filteredMessages);
+    }
+}
+
 function editMessage(req: Request, res: Response) {
     const messageId = parseInt(req.body.messageId, 10);
     const newMessageContent = req.body.content;
@@ -23,6 +34,7 @@ function editMessage(req: Request, res: Response) {
 }
 
 export {
+    getMessagesByChannelId,
     deleteMessage,
     editMessage,
 };

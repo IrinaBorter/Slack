@@ -7,7 +7,6 @@ import {
     includeMemberToChannel,
     excludeMemberFromChannel,
     getMessages,
-    putMessage,
 } from '../channel/channelController';
 
 const channelRoutes = express.Router({ mergeParams: true });
@@ -19,6 +18,5 @@ channelRoutes.post('/', createChannel);
 channelRoutes.post('/member', includeMemberToChannel);
 channelRoutes.delete('/member', excludeMemberFromChannel);
 channelRoutes.get('/:id/messages', getMessages);
-channelRoutes.post('/message', putMessage);
 
 export default channelRoutes;

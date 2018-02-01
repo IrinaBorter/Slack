@@ -2,11 +2,9 @@
     <img src="https://ca.slack-edge.com/T6HND6Y7P-U6HL83N3E-caff3f09c704-72" alt="Photo" class="chat-message-photo">
     <div class="chat-message">
         <p>
-            <a class="chat-message-author">irinaborter</a>
-            <span class="chat-message-time">3:55 pm</span>
+            <a class="chat-message-author">{{message.author.name}}</a>
+            <span class="chat-message-time">{{message.time | date}}</span>
         </p>
-        <p>
-            This is simple message example.
-        </p>
+        <p>{{message.content}}</p>
     </div>
 </section>

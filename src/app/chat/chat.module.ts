@@ -7,6 +7,9 @@ import { ChatMessageInputComponent } from './chat-message-input/chat-message-inp
 import { ChatMessageContainerComponent } from './chat-message-container/chat-message-container.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 
+import { ChatActions } from './redux-entities/chat-actions';
+import { ChatEpic } from './redux-entities/chat-epics';
+
 @NgModule({
     imports: [CommonModule],
     declarations: [
@@ -22,6 +25,10 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
         ChatMessageInputComponent,
         ChatMessageContainerComponent,
         ChatMessageComponent,
+    ],
+    providers: [
+        ChatActions,
+        ChatEpic,
     ],
 })
 
