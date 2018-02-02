@@ -58,7 +58,7 @@ function pushMessage(req: Request, res: Response) {
 
     messages.push(newMessage);
 
-    res.status(200).send(messages);
+    res.status(200).send(messages.filter(message => message.channel.id === channel.id));
 }
 
 export {

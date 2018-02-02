@@ -20,8 +20,8 @@
         font-weight: lighter;
     }
 
-    &.ng-invalid  {
-       color: red;
+    &.ng-invalid.ng-dirty  {
+       border: 1px solid red;
     }
 }
 
