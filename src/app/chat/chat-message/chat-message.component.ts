@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface IMessage {}
 
 @Component({
     selector: 'slack-message',
@@ -6,4 +8,6 @@ import { Component } from '@angular/core';
     styleUrls: ['chat-message.component.scss'],
 })
 
-export class ChatMessageComponent {}
+export class ChatMessageComponent {
+    @Input() message: IMessage;
+}

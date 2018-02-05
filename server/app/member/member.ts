@@ -1,7 +1,6 @@
 interface Member {
     id: number;
-    firstName: string;
-    lastName: string;
+    name: string;
     login: string;
     workspacesIds: Array<number>;
     channelsIds: Array<number>;

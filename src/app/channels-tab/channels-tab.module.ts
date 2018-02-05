@@ -5,10 +5,19 @@ import { ChannelsTabComponent } from './channels-tab.component';
 import { ChannelsActions } from './redux-entities/channels-actions';
 import { ChannelsEpic } from './redux-entities/channels-epics';
 
+import { AppRoutingModule } from '../app-routing.module';
+
 @NgModule({
-    imports: [CommonModule],
-    declarations: [ChannelsTabComponent],
-    exports: [ChannelsTabComponent],
+    imports: [
+        CommonModule,
+        AppRoutingModule,
+    ],
+    declarations: [
+        ChannelsTabComponent
+    ],
+    exports: [
+        ChannelsTabComponent
+    ],
     providers: [
         ChannelsActions,
         ChannelsEpic,

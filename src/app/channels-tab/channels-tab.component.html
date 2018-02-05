@@ -1,6 +1,9 @@
 <div class="channels-container">
     <h3 class="channels-tab-header">Channels</h3>
-    <div class="channel-item" *ngFor="let channel of channels$ | async">
-        {{channel.name}}
-    </div>
+    <div class="channel-item"
+         *ngFor="let channel of channels$ | async"
+         [routerLink]="['channels', channel.id]"
+         routerLinkActive="active"
+    >{{channel.name}}</div>
 </div>
+<router-outlet></router-outlet>

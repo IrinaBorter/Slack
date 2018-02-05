@@ -1,0 +1,17 @@
+<form class="chat-message-container" (ngSubmit)="onSubmit(); messageForm.reset()" #messageForm="ngForm">
+    <input type="text"
+           placeholder="Type here..."
+           class="chat-message"
+           required
+           [(ngModel)]="model.message"
+           name="message"
+           #message="ngModel"
+    >
+    <div [hidden]="message.valid || message.pristine" class="error-message">
+        Message cannot be empty
+    </div>
+    <button type="submit"
+            [disabled]="!messageForm.form.valid"
+            [title]="!messageForm.form.valid ? 'Message cannot be empty' : ''"
+    >Send</button>
+</form>

@@ -12,14 +12,14 @@ const workspaces: Workspace[] = [
         id: 2,
         name: 'Workspace 2',
         url: 'workspace-2.slack.com',
-        channelsIds: [3, 4],
+        channelsIds: [1, 3],
         membersIds: [1, 2, 3],
     },
     {
         id: 3,
         name: 'Workspace 3',
         url: 'workspace-3.slack.com',
-        channelsIds: [5, 6],
+        channelsIds: [2, 3],
         membersIds: [1, 2, 3],
     },
 ];

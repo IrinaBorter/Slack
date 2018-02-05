@@ -70,27 +70,13 @@ function excludeMemberFromChannel(req: Request, res: Response) {
 
 function getMessages(req: Request, res: Response) {
     const channelId: number = parseInt(req.params.id, 10);
-    const foundMessages: Message[] = messages.filter(message => message.channelId === channelId);
+    const foundMessages: Message[] = messages.filter(message => message.channel.id === channelId);
 
     if (!foundMessages) {
         res.sendStatus(404);
     } else {
         res.status(200).send(foundMessages);
     }
-}
-
-function putMessage(req: Request, res: Response) {
-    const newMessage: Message = {
-        id: messages.length + 1,
-        authorId: parseInt(req.body.authorId, 10),
-        content: req.body.content,
-        time: new Date(),
-        channelId: parseInt(req.body.channelId, 10),
-    };
-
-    messages.push(newMessage);
-
-    res.status(200).send(messages);
 }
 
 export {
@@ -101,5 +87,4 @@ export {
     includeMemberToChannel,
     excludeMemberFromChannel,
     getMessages,
-    putMessage,
 };

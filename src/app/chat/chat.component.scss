@@ -1,5 +1,9 @@
 @import '../../assets/color';
 
+:host {
+    flex-grow: 1;
+}
+
 .chat-container {
     display: flex;
     flex-direction: column;
