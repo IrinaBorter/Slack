@@ -14,7 +14,7 @@ interface IMessage {}
 })
 
 export class ChatMessageContainerComponent implements OnInit {
-    @select(['messages', 'items']) messages$: Observable<IMessage>[];
+    @select(['messages', 'items']) messages$: Observable<IMessage[]>;
 
     constructor(
         private route: ActivatedRoute,

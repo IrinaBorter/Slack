@@ -12,6 +12,6 @@
     </div>
     <button type="submit"
             [disabled]="!messageForm.form.valid"
-            title="{{!messageForm.form.valid ? 'Message cannot be empty' : ''}}"
+            [title]="!messageForm.form.valid ? 'Message cannot be empty' : ''"
     >Send</button>
 </form>
